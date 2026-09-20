@@ -3,12 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-}
-
-enum ResultType {
-  IMAGE
-  GIF
+  provider = "postgresql"
 }
 
 enum RoleType {
@@ -91,6 +86,9 @@ model PhotoSession {
 
   results   PhotoResult[]
 
+  settingid Int?
+  setting   WebsiteSetting? @relation(fields: [settingid], references: [id], onDelete: Cascade)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -100,7 +98,6 @@ model PhotoSession {
 
 model PhotoResult {
   id        Int        @id @default(autoincrement())
-  type      ResultType
   filename  String
   url       String
 
@@ -138,6 +135,7 @@ model WebsiteSetting {
 
   frame              FrameTemplate[]
   Landing            LandingPhoto[]
+  PhotoSession       PhotoSession[]
 
   // =========================
   // THEME

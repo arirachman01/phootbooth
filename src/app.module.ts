@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { FrameTemplatesModule } from './frame-templates/frame-templates.module';
 import { LandingPhotosModule } from './landing-photos/landing-photos.module';
 import { SettingModule } from './setting/setting.module';
+import { PhotoResultsModule } from './photo-results/photo-results.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { SettingModule } from './setting/setting.module';
     FrameTemplatesModule,
     LandingPhotosModule,
     SettingModule,
+    PhotoResultsModule,
   ],
 })
 export class AppModule {}
