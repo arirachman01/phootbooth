@@ -5,9 +5,7 @@ import { PrismaService } from '../prisma.service.js';
 export class SettingService {
   constructor(private prisma: PrismaService) {}
   async findAll() {
-    return await this.prisma.websiteSetting.findMany({
-      orderBy: { createdAt: 'desc' },
-    });
+    return await this.prisma.websiteSetting.findMany();
   }
 
   async findOne(id: number) {

@@ -31,7 +31,7 @@ export class AuthService {
     res.cookie('access_token', token, {
       httpOnly: true,
       secure: false,
-      sameSite: 'lax',
+      path: '/',
     });
 
     return {
